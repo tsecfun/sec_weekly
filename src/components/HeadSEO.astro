@@ -1,0 +1,21 @@
+---
+import { SITE } from '@/config';
+export interface Props {
+  content: any;
+  pageURL: URL | string;
+}
+const { content = {}, pageURL } = Astro.props;
+const pageTitle = content.title ? `${SITE.title}${content.title}` : SITE.title;
+const description = content.description ? content.description : SITE.description;
+---
+
+
+<meta name="keywords" content={keywords}/>
+<meta name="author" content={author} />
+<meta name="description" content={description}>
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:image" content={icon} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={pageURL} />
+<meta property="og:site_name" content={pageTitle} />
